@@ -4,12 +4,20 @@ from . models import City
 from . forms import CityForm
 
 def home(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=55b4b4c88b888425414522c90d905795'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metrics&appid=55b4b4c88b888425414522c90d905795'
    
-
+    error_message=''
+    
     if request.method=='POST':
         form = CityForm(request.POST)
-        form.save()
+
+        if form.isvalid():
+            new_city = form.cleaned_data['name']
+            city_already_exists_count = City.objects.filter(name=new_city).count()
+            if city_already_exists_count==0:
+                form.save()
+            else:
+                error_message = 'City already exists in the database!'
 
     form = CityForm()
 
