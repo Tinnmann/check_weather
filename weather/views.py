@@ -4,7 +4,7 @@ from . models import City
 from . forms import CityForm
 
 def home(request):
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=55b4b4c88b888425414522c90d905795'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=55b4b4c88b888425414522c90d905795'
    
     error_message=''
     message = ''
@@ -64,5 +64,5 @@ def home(request):
 
 def delete_city(request, city_name):
     City.objects.get(name = city_name).delete()
-    
+
     return redirect('home')

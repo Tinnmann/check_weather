@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Weather Anywhere</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
 </head>
 
@@ -49,7 +49,7 @@
                 <div class="column is-offset-4 is-4">
                     {% for city_weather in weather_data %}
                     <div class="box">
-                        <article class="media">
+                        <article class="media" >
                             <div class="media-left">
                                 <figure class="image is-50x50">
                                     <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
@@ -60,7 +60,7 @@
                                     <p>
                                         <span class="title">{{ city_weather.city }}</span>
                                         <br>
-                                        <span class="subtitle">{{ city_weather.temperature }}° F</span>
+                                        <span class="subtitle">{{ city_weather.temperature }}° C</span>
                                         <br> {{ city_weather.description }}
                                     </p>
                                 </div>
